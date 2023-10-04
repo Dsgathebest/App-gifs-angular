@@ -25,3 +25,29 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Scripts
+Instalarlo de manera local en los proyectos, no global porque podría ser peligroso mal usado, es para poder ejecutar el "del docs" y el otro el "copyfiles"
+
+```
+npm install del-cli --save-dev
+npm i copyfiles --save-dev
+```
+
+```
+"ng": "ng",
+"start": "ng serve",
+"build": "ng build",
+"build:href": "ng build --base-href ./",
+"build:github":"npm run deleted:docs && npm run build:href",
+"watch": "ng build --watch --configuration development",
+"test": "ng test",
+"deleted:docs": "del docs",
+"copy:dist": "copyfiles dist/gifs-app/* ./docs -f"
+```
+
+Así se ejecuta al final para generar el build listo para github
+
+```
+npm run build:github
+```
